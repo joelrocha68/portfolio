@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joel Rocha • QA Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfólio de Joel Rocha - QA Engineer focado em testes automatizados e qualidade de software." />
+
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-card: #020617;
+      --bg-elevated: #020617;
+      --border-subtle: #1e293b;
+      --accent: #f97373;
+      --accent-soft: rgba(249, 115, 115, 0.12);
+      --text-primary: #e5e7eb;
+      --text-muted: #9ca3af;
+      --pill-bg: #111827;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
+      --radius-xl: 22px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 56px;
+    }
+
+    /* Top bar */
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar-left {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .topbar-nav a {
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .topbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #f97373, #fb7185);
+      border-radius: 999px;
+      transition: width 0.18s ease;
+    }
+
+    .topbar-nav a:hover::after {
+      width: 100%;
+    }
+
+    .lang-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Layout geral */
+
+    main {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Hero esquerda */
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      color: #fb7185;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97373, #fb7185);
+      color: #0b1120;
+      box-shadow: 0 14px 35px rgba(248, 113, 113, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(248, 113, 113, 0.65);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(248, 250, 252, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 26px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-block span {
+      display: block;
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #6b7280;
+      font-size: 0.72rem;
+    }
+
+    /* Hero direita */
+
+    .hero-visual {
+      border-radius: 26px;
+      background: radial-gradient(circle at top left, #fb7185 0, #0f172a 40%, #020617 100%);
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-visual-inner {
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 18px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-visual-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-muted);
+    }
+
+    .hero-visual-main {
+      background: radial-gradient(circle at top left, #0ea5e9 0, #0f172a 45%, #020617 100%);
+      border-radius: 18px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-visual-main h3 {
+      font-size: 1.05rem;
+    }
+
+    .hero-visual-main p {
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      max-width: 260px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    .hero-visual-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-visual-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.2);
+    }
+
+    /* Seções */
+
+    .section {
+      margin-top: 12px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    /* Cards de áreas */
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .area-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .area-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 4px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .area-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .area-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .area-tags {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* Contato */
+
+    .contact-section {
+      text-align: center;
+      padding-top: 12px;
+    }
+
+    .contact-buttons {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .contact-btn {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.12s ease, border-color 0.12s ease;
+    }
+
+    .contact-btn:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(248, 250, 252, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .contact-btn.primary {
+      border-color: transparent;
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #4b5563;
+      padding-top: 12px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-left">Joel Rocha</div>
+      <nav class="topbar-nav">
+        <a href="#home">Início</a>
+        <a href="#services">Serviços</a>
+        <a href="#contact">Contato</a>
+        <span class="lang-pill">PT</span>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div>
+          <div class="hero-eyebrow">QA • Testes Automatizados • Qualidade</div>
+          <h1>QA Engineer com foco em automação e segurança nas entregas.</h1>
+          <p>
+            Desde 2021 atuando com testes funcionais e automatizados, ajudando times a evitarem bugs em produção,
+            aumentar a confiança nos deploys e entregar experiências melhores para o usuário.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#contact">
+              Falar comigo
+            </a>
+            <a class="btn-ghost" href="https://github.com/joelrocha68" target="_blank" rel="noopener noreferrer">
+              Ver GitHub
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-block">
+              <span class="hero-meta-label">Disponível para</span>
+              <span>Trabalho remoto</span>
+            </div>
+            <div class="hero-meta-block">
+              <span class="hero-meta-label">Tipo de contrato</span>
+              <span>CLT ou PJ</span>
+            </div>
+            <div class="hero-meta-block">
+              <span class="hero-meta-label">Atuação</span>
+              <span>QA • Automação • Funcional</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-inner">
+            <span class="hero-visual-pill">
+              🔎 Foco em qualidade
+            </span>
+
+            <div class="hero-visual-main">
+              <h3>Automação que protege o produto.</h3>
+              <p>
+                Suites de testes pensadas para garantir fluxos críticos,
+                cobertura inteligente e feedback rápido para o time.
+              </p>
+
+              <div class="hero-tags">
+                <span class="hero-tag">Robot Framework</span>
+                <span class="hero-tag">Cypress</span>
+                <span class="hero-tag">Selenium</span>
+                <span class="hero-tag">JMeter</span>
+              </div>
+            </div>
+
+            <div class="hero-visual-footer">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="hero-visual-dot"></span>
+                <span>Testes rodando com sucesso</span>
+              </div>
+              <span>Sem medo de deploy 🚀</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ÁREAS DE ATUAÇÃO -->
+      <section id="services" class="section">
+        <h2 class="section-title">Áreas de Atuação</h2>
+        <p class="section-subtitle">
+          Atuo desde a definição dos cenários até a execução dos testes, documentação e apoio ao time de desenvolvimento.
+        </p>
+
+        <div class="areas-grid">
+          <article class="area-card">
+            <div class="area-icon">🤖</div>
+            <h3 class="area-title">Automação de Testes (Robot Framework)</h3>
+            <p class="area-desc">
+              Criação de suites de testes estruturadas, com keywords reutilizáveis e foco em manutenção simples.
+            </p>
+            <div class="area-tags">Robot Framework • Selenium • Page Objects</div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">🧪</div>
+            <h3 class="area-title">Testes Web com Cypress</h3>
+            <p class="area-desc">
+              Testes end-to-end para fluxos críticos, validação de regras de negócio e comportamento da interface.
+            </p>
+            <div class="area-tags">Cypress • JavaScript • Relatórios</div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">🔌</div>
+            <h3 class="area-title">Testes de API</h3>
+            <p class="area-desc">
+              Validação de contratos, códigos de retorno, cenários de erro e integrações entre serviços.
+            </p>
+            <div class="area-tags">REST • JSON • Collections</div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">📈</div>
+            <h3 class="area-title">Testes de Performance</h3>
+            <p class="area-desc">
+              Uso de JMeter para simular carga, analisar tempos de resposta e identificar gargalos.
+            </p>
+            <div class="area-tags">JMeter • Carga • Métricas</div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">✅</div>
+            <h3 class="area-title">Testes Funcionais Manuais</h3>
+            <p class="area-desc">
+              Execução de cenários exploratórios e regressivos para garantir que o fluxo completo está saudável.
+            </p>
+            <div class="area-tags">Casos de teste • Regressão</div>
+          </article>
+
+          <article class="area-card">
+            <div class="area-icon">📝</div>
+            <h3 class="area-title">Documentação & Relatórios</h3>
+            <p class="area-desc">
+              Escrita clara de cenários, bugs e evidências para facilitar o entendimento por devs e stakeholders.
+            </p>
+            <div class="area-tags">BDD • Evidências • Comunicação</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section id="contact" class="section contact-section">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Me chama para conversarmos sobre oportunidades, projetos ou dúvidas sobre qualidade de software.
+        </p>
+
+        <div class="contact-buttons">
+          <!-- Troque o número do WhatsApp abaixo pelo seu: 55 + DDD + número, sem espaços -->
+          <a class="contact-btn primary" href="https://wa.me/5581996516662" target="_blank" rel="noopener noreferrer">
+            💬 WhatsApp
+          </a>
+
+          <a class="contact-btn" href="https://www.linkedin.com/in/joel-rocha00" target="_blank" rel="noopener noreferrer">
+            🔗 LinkedIn
+          </a>
+
+          <a class="contact-btn" href="mailto:joel.rocha2080@proton.me">
+            ✉️ E-mail
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Joel Rocha • Qualidade de Software & Testes Automatizados
+    </footer>
+  </div>
+</body>
+</html>
