@@ -10,13 +10,10 @@
     :root {
       --bg-main: #020617;
       --bg-card: #020617;
-      --bg-elevated: #020617;
       --border-subtle: #1e293b;
       --accent: #f97373;
-      --accent-soft: rgba(249, 115, 115, 0.12);
       --text-primary: #e5e7eb;
       --text-muted: #9ca3af;
-      --pill-bg: #111827;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
       --radius-xl: 22px;
     }
@@ -102,6 +99,8 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.8rem;
       color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
     }
 
     /* Layout geral */
@@ -110,13 +109,13 @@
       margin-top: 32px;
       display: flex;
       flex-direction: column;
-      gap: 64px;
+      gap: 56px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 40px;
+      gap: 36px;
       align-items: center;
     }
 
@@ -143,15 +142,15 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      font-size: clamp(2.3rem, 4vw, 3rem);
       line-height: 1.05;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero p {
       font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 480px;
       line-height: 1.6;
     }
 
@@ -159,7 +158,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 24px;
       align-items: center;
     }
 
@@ -203,8 +202,8 @@
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px;
-      margin-top: 26px;
+      gap: 18px;
+      margin-top: 20px;
       font-size: 0.8rem;
       color: var(--text-muted);
     }
@@ -222,24 +221,24 @@
       font-size: 0.72rem;
     }
 
-    /* Hero direita */
+    /* Hero direita (cartão único) */
 
     .hero-visual {
-      border-radius: 26px;
+      border-radius: 24px;
       background: radial-gradient(circle at top left, #fb7185 0, #0f172a 40%, #020617 100%);
-      padding: 20px;
+      padding: 18px;
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(15, 23, 42, 0.9);
     }
 
     .hero-visual-inner {
-      border-radius: 20px;
-      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.95);
       border: 1px solid rgba(148, 163, 184, 0.18);
-      padding: 18px 16px 16px;
+      padding: 16px 16px 14px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .hero-visual-pill {
@@ -254,17 +253,9 @@
       color: var(--text-muted);
     }
 
-    .hero-visual-main {
-      background: radial-gradient(circle at top left, #0ea5e9 0, #0f172a 45%, #020617 100%);
-      border-radius: 18px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
     .hero-visual-main h3 {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      margin-bottom: 6px;
     }
 
     .hero-visual-main p {
@@ -277,7 +268,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .hero-tag {
@@ -289,31 +280,11 @@
       color: #e5e7eb;
     }
 
-    .hero-visual-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .hero-visual-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.2);
-    }
-
     /* Seções */
 
-    .section {
-      margin-top: 12px;
-    }
-
     .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 18px;
+      font-size: 1.35rem;
+      margin-bottom: 12px;
     }
 
     .section-subtitle {
@@ -323,11 +294,11 @@
       max-width: 520px;
     }
 
-    /* Cards de áreas */
+    /* Cards de serviços (só 3) */
 
     .areas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
     }
 
@@ -340,19 +311,17 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      position: relative;
-      overflow: hidden;
     }
 
     .area-icon {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.4);
     }
@@ -377,11 +346,10 @@
 
     .contact-section {
       text-align: center;
-      padding-top: 12px;
     }
 
     .contact-buttons {
-      margin-top: 22px;
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -415,7 +383,7 @@
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 36px;
       text-align: center;
       font-size: 0.75rem;
       color: #4b5563;
@@ -429,10 +397,10 @@
     <header class="topbar">
       <div class="topbar-left">Joel Rocha</div>
       <nav class="topbar-nav">
-        <a href="#home">Início</a>
-        <a href="#services">Serviços</a>
-        <a href="#contact">Contato</a>
-        <span class="lang-pill">PT</span>
+        <a href="#home" data-i18n="nav.home">Início</a>
+        <a href="#services" data-i18n="nav.services">Serviços</a>
+        <a href="#contact" data-i18n="nav.contact">Contato</a>
+        <button class="lang-pill" id="lang-toggle" type="button">PT</button>
       </nav>
     </header>
 
@@ -440,49 +408,52 @@
       <!-- HERO -->
       <section id="home" class="hero">
         <div>
-          <div class="hero-eyebrow">QA • Testes Automatizados • Qualidade</div>
-          <h1>QA Engineer com foco em automação e segurança nas entregas.</h1>
-          <p>
-            Desde 2021 atuando com testes funcionais e automatizados, ajudando times a evitarem bugs em produção,
-            aumentar a confiança nos deploys e entregar experiências melhores para o usuário.
+          <div class="hero-eyebrow" data-i18n="hero.eyebrow">
+            QA • Testes Automatizados • Qualidade
+          </div>
+          <h1 data-i18n="hero.title">
+            QA Engineer com foco em automação e qualidade nas entregas.
+          </h1>
+          <p data-i18n="hero.subtitle">
+            Desde 2021 atuando com testes funcionais e automatizados, ajudando times a evitarem bugs em produção
+            e a ganharem mais confiança nos deploys.
           </p>
 
           <div class="hero-actions">
-            <a class="btn-primary" href="#contact">
+            <a class="btn-primary" href="#contact" data-i18n="hero.btn.primary">
               Falar comigo
             </a>
-            <a class="btn-ghost" href="https://github.com/joelrocha68" target="_blank" rel="noopener noreferrer">
+            <a class="btn-ghost" href="https://github.com/joelrocha68" target="_blank" rel="noopener noreferrer" data-i18n="hero.btn.secondary">
               Ver GitHub
             </a>
           </div>
 
           <div class="hero-meta">
             <div class="hero-meta-block">
-              <span class="hero-meta-label">Disponível para</span>
-              <span>Trabalho remoto</span>
+              <span class="hero-meta-label" data-i18n="hero.meta.available.label">Disponível para</span>
+              <span data-i18n="hero.meta.available.value">Trabalho remoto</span>
             </div>
             <div class="hero-meta-block">
-              <span class="hero-meta-label">Tipo de contrato</span>
-              <span>CLT ou PJ</span>
+              <span class="hero-meta-label" data-i18n="hero.meta.contract.label">Tipo de contrato</span>
+              <span data-i18n="hero.meta.contract.value">CLT ou PJ</span>
             </div>
             <div class="hero-meta-block">
-              <span class="hero-meta-label">Atuação</span>
-              <span>QA • Automação • Funcional</span>
+              <span class="hero-meta-label" data-i18n="hero.meta.role.label">Atuação</span>
+              <span data-i18n="hero.meta.role.value">QA • Automação • Funcional</span>
             </div>
           </div>
         </div>
 
         <aside class="hero-visual" aria-hidden="true">
           <div class="hero-visual-inner">
-            <span class="hero-visual-pill">
+            <span class="hero-visual-pill" data-i18n="hero.card.pill">
               🔎 Foco em qualidade
             </span>
 
             <div class="hero-visual-main">
-              <h3>Automação que protege o produto.</h3>
-              <p>
-                Suites de testes pensadas para garantir fluxos críticos,
-                cobertura inteligente e feedback rápido para o time.
+              <h3 data-i18n="hero.card.title">Automação que protege o produto.</h3>
+              <p data-i18n="hero.card.body">
+                Suites de testes estáveis para fluxos críticos, cobrindo o que é mais importante para o negócio.
               </p>
 
               <div class="hero-tags">
@@ -492,100 +463,71 @@
                 <span class="hero-tag">JMeter</span>
               </div>
             </div>
-
-            <div class="hero-visual-footer">
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="hero-visual-dot"></span>
-                <span>Testes rodando com sucesso</span>
-              </div>
-              <span>Sem medo de deploy 🚀</span>
-            </div>
           </div>
         </aside>
       </section>
 
-      <!-- ÁREAS DE ATUAÇÃO -->
-      <section id="services" class="section">
-        <h2 class="section-title">Áreas de Atuação</h2>
-        <p class="section-subtitle">
-          Atuo desde a definição dos cenários até a execução dos testes, documentação e apoio ao time de desenvolvimento.
+      <!-- SERVIÇOS (3 cards) -->
+      <section id="services">
+        <h2 class="section-title" data-i18n="services.title">Como posso ajudar</h2>
+        <p class="section-subtitle" data-i18n="services.subtitle">
+          Atuação focada em garantir que funcionalidades importantes estejam bem testadas, com automação onde faz sentido
+          e boa comunicação com o time.
         </p>
 
         <div class="areas-grid">
           <article class="area-card">
             <div class="area-icon">🤖</div>
-            <h3 class="area-title">Automação de Testes (Robot Framework)</h3>
-            <p class="area-desc">
-              Criação de suites de testes estruturadas, com keywords reutilizáveis e foco em manutenção simples.
+            <h3 class="area-title" data-i18n="services.card1.title">Automação de Testes</h3>
+            <p class="area-desc" data-i18n="services.card1.body">
+              Criação de suites de testes automatizados para fluxos críticos, com foco em estabilidade e manutenção simples.
             </p>
-            <div class="area-tags">Robot Framework • Selenium • Page Objects</div>
+            <div class="area-tags" data-i18n="services.card1.tags">
+              Robot Framework • Cypress • Selenium
+            </div>
           </article>
 
           <article class="area-card">
             <div class="area-icon">🧪</div>
-            <h3 class="area-title">Testes Web com Cypress</h3>
-            <p class="area-desc">
-              Testes end-to-end para fluxos críticos, validação de regras de negócio e comportamento da interface.
+            <h3 class="area-title" data-i18n="services.card2.title">Testes Funcionais</h3>
+            <p class="area-desc" data-i18n="services.card2.body">
+              Testes manuais e exploratórios para validar regras de negócio, jornadas principais e cenários de regressão.
             </p>
-            <div class="area-tags">Cypress • JavaScript • Relatórios</div>
+            <div class="area-tags" data-i18n="services.card2.tags">
+              Casos de teste • Regressão • Exploratórios
+            </div>
           </article>
 
           <article class="area-card">
-            <div class="area-icon">🔌</div>
-            <h3 class="area-title">Testes de API</h3>
-            <p class="area-desc">
-              Validação de contratos, códigos de retorno, cenários de erro e integrações entre serviços.
+            <div class="area-icon">📊</div>
+            <h3 class="area-title" data-i18n="services.card3.title">Qualidade & Comunicação</h3>
+            <p class="area-desc" data-i18n="services.card3.body">
+              Documentação objetiva de cenários, bugs e evidências, ajudando o time a tomar decisões rápidas e seguras.
             </p>
-            <div class="area-tags">REST • JSON • Collections</div>
-          </article>
-
-          <article class="area-card">
-            <div class="area-icon">📈</div>
-            <h3 class="area-title">Testes de Performance</h3>
-            <p class="area-desc">
-              Uso de JMeter para simular carga, analisar tempos de resposta e identificar gargalos.
-            </p>
-            <div class="area-tags">JMeter • Carga • Métricas</div>
-          </article>
-
-          <article class="area-card">
-            <div class="area-icon">✅</div>
-            <h3 class="area-title">Testes Funcionais Manuais</h3>
-            <p class="area-desc">
-              Execução de cenários exploratórios e regressivos para garantir que o fluxo completo está saudável.
-            </p>
-            <div class="area-tags">Casos de teste • Regressão</div>
-          </article>
-
-          <article class="area-card">
-            <div class="area-icon">📝</div>
-            <h3 class="area-title">Documentação & Relatórios</h3>
-            <p class="area-desc">
-              Escrita clara de cenários, bugs e evidências para facilitar o entendimento por devs e stakeholders.
-            </p>
-            <div class="area-tags">BDD • Evidências • Comunicação</div>
+            <div class="area-tags" data-i18n="services.card3.tags">
+              BDD • Evidências • Relatórios
+            </div>
           </article>
         </div>
       </section>
 
       <!-- CONTATO -->
-      <section id="contact" class="section contact-section">
-        <h2 class="section-title">Contato</h2>
-        <p class="section-subtitle" style="margin: 0 auto;">
+      <section id="contact" class="contact-section">
+        <h2 class="section-title" data-i18n="contact.title">Contato</h2>
+        <p class="section-subtitle" style="margin: 0 auto;" data-i18n="contact.subtitle">
           Me chama para conversarmos sobre oportunidades, projetos ou dúvidas sobre qualidade de software.
         </p>
 
         <div class="contact-buttons">
-          <!-- Troque o número do WhatsApp abaixo pelo seu: 55 + DDD + número, sem espaços -->
-          <a class="contact-btn primary" href="https://wa.me/5581996516662" target="_blank" rel="noopener noreferrer">
+          <a class="contact-btn primary" href="https://wa.me/5581996516662" target="_blank" rel="noopener noreferrer" data-i18n="contact.whatsapp">
             💬 WhatsApp
           </a>
 
-          <a class="contact-btn" href="https://www.linkedin.com/in/joel-rocha00" target="_blank" rel="noopener noreferrer">
+          <a class="contact-btn" href="https://www.linkedin.com/in/joel-rocha00" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">
             🔗 LinkedIn
           </a>
 
-          <a class="contact-btn" href="mailto:joel.rocha2080@proton.me">
+          <a class="contact-btn" href="mailto:joel.rocha2080@proton.me" data-i18n="contact.email">
             ✉️ E-mail
           </a>
         </div>
@@ -593,8 +535,144 @@
     </main>
 
     <footer>
-      © 2025 Joel Rocha • Qualidade de Software & Testes Automatizados
+      <span data-i18n="footer.text">© 2025 Joel Rocha • Qualidade de Software & Testes Automatizados</span>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      pt: {
+        'nav.home': 'Início',
+        'nav.services': 'Serviços',
+        'nav.contact': 'Contato',
+
+        'hero.eyebrow': 'QA • Testes Automatizados • Qualidade',
+        'hero.title': 'QA Engineer com foco em automação e qualidade nas entregas.',
+        'hero.subtitle':
+          'Desde 2021 atuando com testes funcionais e automatizados, ajudando times a evitarem bugs em produção e a ganharem mais confiança nos deploys.',
+        'hero.btn.primary': 'Falar comigo',
+        'hero.btn.secondary': 'Ver GitHub',
+
+        'hero.meta.available.label': 'Disponível para',
+        'hero.meta.available.value': 'Trabalho remoto',
+        'hero.meta.contract.label': 'Tipo de contrato',
+        'hero.meta.contract.value': 'CLT ou PJ',
+        'hero.meta.role.label': 'Atuação',
+        'hero.meta.role.value': 'QA • Automação • Funcional',
+
+        'hero.card.pill': '🔎 Foco em qualidade',
+        'hero.card.title': 'Automação que protege o produto.',
+        'hero.card.body':
+          'Suites de testes estáveis para fluxos críticos, cobrindo o que é mais importante para o negócio.',
+
+        'services.title': 'Como posso ajudar',
+        'services.subtitle':
+          'Atuação focada em garantir que funcionalidades importantes estejam bem testadas, com automação onde faz sentido e boa comunicação com o time.',
+
+        'services.card1.title': 'Automação de Testes',
+        'services.card1.body':
+          'Criação de suites de testes automatizados para fluxos críticos, com foco em estabilidade e manutenção simples.',
+        'services.card1.tags': 'Robot Framework • Cypress • Selenium',
+
+        'services.card2.title': 'Testes Funcionais',
+        'services.card2.body':
+          'Testes manuais e exploratórios para validar regras de negócio, jornadas principais e cenários de regressão.',
+        'services.card2.tags': 'Casos de teste • Regressão • Exploratórios',
+
+        'services.card3.title': 'Qualidade & Comunicação',
+        'services.card3.body':
+          'Documentação objetiva de cenários, bugs e evidências, ajudando o time a tomar decisões rápidas e seguras.',
+        'services.card3.tags': 'BDD • Evidências • Relatórios',
+
+        'contact.title': 'Contato',
+        'contact.subtitle':
+          'Me chama para conversarmos sobre oportunidades, projetos ou dúvidas sobre qualidade de software.',
+        'contact.whatsapp': '💬 WhatsApp',
+        'contact.linkedin': '🔗 LinkedIn',
+        'contact.email': '✉️ E-mail',
+
+        'footer.text': '© 2025 Joel Rocha • Qualidade de Software & Testes Automatizados'
+      },
+
+      en: {
+        'nav.home': 'Home',
+        'nav.services': 'Services',
+        'nav.contact': 'Contact',
+
+        'hero.eyebrow': 'QA • Test Automation • Quality',
+        'hero.title': 'QA Engineer focused on test automation and reliable deliveries.',
+        'hero.subtitle':
+          'Working with functional and automated tests since 2021, helping teams avoid bugs in production and gain confidence in deployments.',
+        'hero.btn.primary': 'Contact me',
+        'hero.btn.secondary': 'View GitHub',
+
+        'hero.meta.available.label': 'Available for',
+        'hero.meta.available.value': 'Remote work',
+        'hero.meta.contract.label': 'Contract type',
+        'hero.meta.contract.value': 'Full-time or Contractor',
+        'hero.meta.role.label': 'Focus',
+        'hero.meta.role.value': 'QA • Automation • Functional',
+
+        'hero.card.pill': '🔎 Focus on quality',
+        'hero.card.title': 'Automation that protects the product.',
+        'hero.card.body':
+          'Stable automated suites for critical flows, covering what matters most to the business.',
+
+        'services.title': 'How I can help',
+        'services.subtitle':
+          'Focused on making sure key features are well tested, with automation where it makes sense and clear communication with the team.',
+
+        'services.card1.title': 'Test Automation',
+        'services.card1.body':
+          'Design and implementation of automated test suites for critical flows, keeping stability and easy maintenance in mind.',
+        'services.card1.tags': 'Robot Framework • Cypress • Selenium',
+
+        'services.card2.title': 'Functional Testing',
+        'services.card2.body':
+          'Manual and exploratory tests to validate business rules, main journeys and regression scenarios.',
+        'services.card2.tags': 'Test cases • Regression • Exploratory',
+
+        'services.card3.title': 'Quality & Communication',
+        'services.card3.body':
+          'Clear documentation of scenarios, bugs and evidence so the team can make fast and safe decisions.',
+        'services.card3.tags': 'BDD • Evidence • Reports',
+
+        'contact.title': 'Contact',
+        'contact.subtitle':
+          'Reach out if you want to talk about opportunities, projects or software quality topics.',
+        'contact.whatsapp': '💬 WhatsApp',
+        'contact.linkedin': '🔗 LinkedIn',
+        'contact.email': '✉️ Email',
+
+        'footer.text': '© 2025 Joel Rocha • Software Quality & Test Automation'
+      }
+    };
+
+    let currentLang = 'pt';
+
+    function applyTranslations(lang) {
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        const text = translations[lang][key];
+        if (text) el.textContent = text;
+      });
+
+      const langBtn = document.getElementById('lang-toggle');
+      if (langBtn) langBtn.textContent = lang === 'pt' ? 'PT' : 'EN';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const langBtn = document.getElementById('lang-toggle');
+      if (langBtn) {
+        langBtn.addEventListener('click', () => {
+          currentLang = currentLang === 'pt' ? 'en' : 'pt';
+          applyTranslations(currentLang);
+        });
+      }
+      applyTranslations(currentLang);
+    });
+  </script>
 </body>
 </html>
